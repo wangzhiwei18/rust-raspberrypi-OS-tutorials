@@ -3,14 +3,14 @@ name: Xtra-Tests
 on:
     push:
         branches:
-            - master
+            - b01
         paths-ignore:
             - "utils/**"
             - "doc/**"
             - "docker/**"
     pull_request:
         branches:
-            - master
+            - b01
         paths-ignore:
             - "utils/**"
             - "doc/**"
@@ -27,6 +27,8 @@ jobs:
             - uses: actions/checkout@v3
             - name: Set up Ruby
               uses: ruby/setup-ruby@v1
+            - name: Install Rust
+            - run: rustup default 1.78
             - name: Set up Rust nightly
               run: |
                   cargo install cargo-binutils
